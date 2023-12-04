@@ -39,9 +39,33 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script
+    <!-- <script
       src="https://js.sentry-cdn.com/b2324bc012cc51f4f05ca25d5bbe2cf7.min.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
+    <script>
+      const initAfterLoad = () => {
+        Sentry.init({
+          environment: "production",
+          dsn: "https://b2324bc012cc51f4f05ca25d5bbe2cf7@o4506313834692608.ingest.sentry.io/4506336320880640",
+          release: "sentry-react@1.0.1",
+        });
+      };
+
+      function loadScript(src) {
+        const script = document.createElement("script");
+        script.src = src;
+
+        return new Promise((res, rej) => {
+          script.onload = () => res();
+          script.onerror = () => rej();
+          document.getElementsByTagName("head")[0].appendChild(script);
+        });
+      }
+
+      loadScript(
+        "https://js.sentry-cdn.com/b2324bc012cc51f4f05ca25d5bbe2cf7.min.js"
+      ).then(() => initAfterLoad());
+    </script>
   </body>
 </html>
