@@ -41,7 +41,7 @@ function App() {
         </p>
         <button
           onClick={() => {
-            handleClick("Houston we have a 2nd error");
+            handleClick("Houston we have a prod error");
           }}
         >
           Learn React
