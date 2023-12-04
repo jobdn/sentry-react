@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-import * as Sentry from "@sentry/react";
+// import * as Sentry from "@sentry/react";
 
-const release = "sentry-react@1.0.0";
+const release = "sentry-react@1.0.1";
 
 class ValidationError extends Error {
   constructor(message) {
@@ -12,20 +12,20 @@ class ValidationError extends Error {
   }
 }
 
-Sentry.init({
-  dsn: "https://b2324bc012cc51f4f05ca25d5bbe2cf7@o4506313834692608.ingest.sentry.io/4506336320880640",
-  integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
+// Sentry.init({
+//   dsn: "https://b2324bc012cc51f4f05ca25d5bbe2cf7@o4506313834692608.ingest.sentry.io/4506336320880640",
+//   integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
 
-  release,
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  tracesSampleRate: 1.0,
+//   release,
+//   // Set tracesSampleRate to 1.0 to capture 100%
+//   // of transactions for performance monitoring.
+//   tracesSampleRate: 1.0,
 
-  // Capture Replay for 10% of all sessions,
-  // plus for 100% of sessions with an error
-  replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1.0,
-});
+//   // Capture Replay for 10% of all sessions,
+//   // plus for 100% of sessions with an error
+//   replaysSessionSampleRate: 0.1,
+//   replaysOnErrorSampleRate: 1.0,
+// });
 
 function App() {
   const handleClick = (message) => {
@@ -41,7 +41,7 @@ function App() {
         </p>
         <button
           onClick={() => {
-            handleClick("Houston we have a prod error");
+            handleClick("Houston we have a 2prod error");
           }}
         >
           Learn React
@@ -50,5 +50,5 @@ function App() {
     </div>
   );
 }
-
-export default Sentry.withProfiler(App);
+export default App;
+// export default Sentry.withProfiler(App);
