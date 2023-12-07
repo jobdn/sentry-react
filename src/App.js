@@ -4,7 +4,7 @@ import { Counter } from "./Counter";
 
 // import * as Sentry from "@sentry/react";
 
-const release = "sentry-react@1.0.1";
+const release = "sentry-react@1.1.0";
 
 class ValidationError extends Error {
   constructor(message) {
@@ -42,7 +42,7 @@ function App() {
         </p>
         <button
           onClick={() => {
-            handleClick("Houston we have an PROD problem");
+            handleClick("PROD problems");
           }}
         >
           Throw Houston error
