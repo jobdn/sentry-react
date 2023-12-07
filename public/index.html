@@ -39,15 +39,13 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- <script
-      src="https://js.sentry-cdn.com/b2324bc012cc51f4f05ca25d5bbe2cf7.min.js"
-      crossorigin="anonymous"
-    ></script> -->
+
     <script>
       const initAfterLoad = () => {
         Sentry.init({
           environment: "production",
-          dsn: "https://b2324bc012cc51f4f05ca25d5bbe2cf7@o4506313834692608.ingest.sentry.io/4506336320880640",
+          // dsn: "https://b2324bc012cc51f4f05ca25d5bbe2cf7@o4506313834692608.ingest.sentry.io/4506336320880640",
+          dsn: "https://163d6c61e03240138043d75183a1e952@sentry.facecast.net/10",
           release: "sentry-react@1.0.1",
         });
       };
@@ -55,6 +53,7 @@
       function loadScript(src) {
         const script = document.createElement("script");
         script.src = src;
+        script.setAttribute("crossorigin", "anonymous");
 
         return new Promise((res, rej) => {
           script.onload = () => res();
@@ -63,9 +62,11 @@
         });
       }
 
-      loadScript(
-        "https://js.sentry-cdn.com/b2324bc012cc51f4f05ca25d5bbe2cf7.min.js"
-      ).then(() => initAfterLoad());
+      loadScript("https://browser.sentry-cdn.com/6.2.5/bundle.min.js")
+        .then(() => initAfterLoad())
+        .catch((error) => {
+          console.log("Error loading", error);
+        });
     </script>
   </body>
 </html>
