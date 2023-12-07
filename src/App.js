@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { Counter } from "./Counter";
 
 // import * as Sentry from "@sentry/react";
 
@@ -44,8 +45,10 @@ function App() {
             handleClick("Houston we have an PROD problem");
           }}
         >
-          Learn React
+          Throw Houston error
         </button>
+
+        <Counter />
       </header>
     </div>
   );
